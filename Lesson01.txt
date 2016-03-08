@@ -2,10 +2,32 @@ Python版本: 3.4.2
 操作系统: CentOS release 6.4 (Final)
 
 1.
-
+a)start比stop小的时候,若未明确将step设置为适当的负值，就会报错
+b)以step为步长,并且倒序显示range函数中的元素
 
 
 2.
+#!/root/.pyenv/shims/python3
+#coding: utf-8
+import traceback
+try:
+    ori_num=int(10)
+    i=1
+    while i<4:
+        in_num = int(input("Enter your number: "))
+        if ori_num == in_num:
+            print ("congratulations! you win!")
+            break
+            #print ("congratulations! you win!")
+        else:
+            i+=1
+            print ("Oops! you fail!")
+except ValueError:
+    f=open("/root/log.txt",'a')
+    traceback.print_exc(file=f)
+    f.flush()
+    f.close()
+    print("输入参数不合法,请输入整数")
 
 
 
